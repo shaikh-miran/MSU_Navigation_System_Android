@@ -6,13 +6,95 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <!-- Header TextView -->
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/headerTextView"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@color/spartan_green"
+        android:text="@string/header"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+
+    <!-- Current Location TextView (Dynamic) -->
+    <TextView
+        android:id="@+id/locationTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/light_gray"
+        android:text="@string/location_prefix"
+        android:textSize="24sp"
+        app:layout_constraintTop_toBottomOf="@id/headerTextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+    <!-- Classroom Number Input EditText -->
+    <EditText
+        android:id="@+id/classroomInput"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/class_input_hint"
+        android:ems="10"
+        android:inputType="number"
+        android:autofillHints="none"
+        app:layout_constraintTop_toBottomOf="@id/locationTextView"
+        app:layout_constraintEnd_toStartOf="@id/buildingImageView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+    <!-- Current Building ImageView (Dynamic) -->
+    <ImageView
+        android:id="@+id/buildingImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_launcher_background"
+        android:contentDescription="@string/image_description"
+        app:layout_constraintTop_toBottomOf="@id/locationTextView"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+    <!-- Map View -->
+    <View
+        android:id="@+id/mapView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/kelly_green"
+        app:layout_constraintTop_toBottomOf="@id/buildingImageView"
+        app:layout_constraintBottom_toTopOf="@id/helpButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+    <!-- Help Button -->
+    <Button
+        android:id="@+id/helpButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/help"
+        android:backgroundTint="@color/refresh_green"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/settingsButton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_weight="1"/>
+
+
+    <!-- Settings Button -->
+    <Button
+        android:id="@+id/settingsButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/settings"
+        android:backgroundTint="@color/refresh_green"
+        app:layout_constraintStart_toEndOf="@id/helpButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_weight="1"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
