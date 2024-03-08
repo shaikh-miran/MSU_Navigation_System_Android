@@ -6,15 +6,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-public class MainActivity extends AppCompatActivity {
-    // Initial push
+public class HelpActivity extends AppCompatActivity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_help);
     }
-    public void onStartHelp(View view) {
-        Intent intent = new Intent(this, HelpActivity.class);
+    public void onStartMain(View view) {
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
 
     }

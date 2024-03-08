@@ -6,4 +6,6 @@
     <string name="location_prefix">Current Location: </string>
     <string name="class_input_hint">Enter Classroom Number</string>
     <string name="image_description">An image of the current location\'s building</string>
+    <string name="help_instructions">Select building and room to guide you to your class</string>
+    <string name="help_to_main">Go back</string>
 </resources>
