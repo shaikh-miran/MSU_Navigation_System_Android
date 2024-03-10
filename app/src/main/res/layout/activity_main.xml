@@ -8,23 +8,33 @@
         android:id="@+id/editTextUsername"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/username"
-        android:layout_marginBottom="8dp"/>
+        android:layout_marginTop="180dp"
+        android:layout_marginBottom="8dp"
+        android:hint="@string/username" />
 
     <EditText
         android:id="@+id/editTextPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/password"
         android:layout_below="@id/editTextUsername"
-        android:layout_marginBottom="8dp"/>
+        android:layout_marginTop="53dp"
+        android:layout_marginBottom="8dp"
+        android:hint="@string/password" />
 
     <Button
         android:id="@+id/buttonLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/login"
         android:layout_below="@id/editTextPassword"
-        android:layout_marginTop="16dp"/>
+        android:layout_marginTop="206dp"
+        android:text="@string/login" />
+
+    <Button
+        android:id="@+id/buttonChange"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/buttonLogin"
+        android:layout_marginTop="15dp"
+        android:text="@string/change_password" />
 
 </RelativeLayout>
