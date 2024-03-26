@@ -129,10 +129,26 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     public void onMapReady(@NonNull GoogleMap googleMap) {
         mMap = googleMap;
 
-        LatLng sydney = new LatLng(42.731138, -84.487508);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Spartan Statue "));
+        //LatLng sydney = new LatLng(42.731138, -84.487508);
+        LatLng currLocation = new LatLng(latitude, longitude);
+        LatLng spartanStatue = new LatLng(42.731138, -84.487508);
+        mMap.addMarker(new MarkerOptions().position(spartanStatue).title("Spartan Statue"));
         // Move the camera to the location and set the zoom level.
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(sydney, 15));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(spartanStatue, 15));
+    }
+
+    /**
+     * Save a location to preferences
+     * @param locName Location name
+     * @param lat Latitude of location
+     * @param lon Longitude of location
+     */
+    private void saveLocation(String locName, double lat, double lon) {
+        SharedPreferences.Editor editor = settings.edit();
+        editor.putString(TO, locName);
+        editor.putString(TOLAT, String.valueOf(lat));
+        editor.putString(TOLONG, String.valueOf(lon));
+        editor.apply();
     }
 
     /**
@@ -185,6 +201,26 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
      */
     private void unregisterListeners() {
         locationManager.removeUpdates(activeListener);
+    }
+
+    /**
+     * Called when this application becomes foreground again
+     */
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        registerListeners();
+    }
+
+    /**
+     * Called when this application is no longer the foreground application
+     */
+    @Override
+    protected void onPause() {
+        unregisterListeners();
+
+        super.onPause();
     }
 
     private class ActiveListener implements LocationListener {
