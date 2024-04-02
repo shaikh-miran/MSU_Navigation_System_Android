@@ -83,7 +83,7 @@
         app:layout_constraintTop_toBottomOf="@id/buildingImageView"
         app:layout_constraintBottom_toTopOf="@id/helpButton"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"/>
 
 
     <!-- Help Button -->
