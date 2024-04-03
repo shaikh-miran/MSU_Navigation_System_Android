@@ -130,10 +130,6 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         if (mMap != null && valid) {
             mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(currLocation, 15));
         }
-
-//        if (valid && mMap != null) {
-//            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(currLocation, 15));
-//        }
     }
 
     @Override
@@ -165,6 +161,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         //LatLng sydney = new LatLng(42.731138, -84.487508);
         LatLng currLocation = new LatLng(latitude, longitude);
 
+        // TODO Temporary location, update coords to toLatitude and toLongitude once implemented
         LatLng spartanStatue = new LatLng(42.731138, -84.487508);
 
         mMap = googleMap;
@@ -247,12 +244,12 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                     String polyline = poly.getString("points");
                     drawPolyline(polyline);
                 } else {
-                    // Log or handle the case where no routes are found
+                    // Log the case where no routes are found
                     Log.e("DirectionsError", "No routes found in the response.");
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
-                // Log or handle the JSON parsing error
+                // Log the JSON parsing error
                 Log.e("DirectionsError", "Error parsing JSON response.", e);
             }
         }
