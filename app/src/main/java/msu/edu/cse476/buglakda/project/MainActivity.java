@@ -127,7 +127,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         Log.i("LATITUDE", String.valueOf(latitude));
         Log.i("LONGITUDE", String.valueOf(longitude));
 
-        if (mMap != null) {
+        if (mMap != null && valid) {
             mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(currLocation, 15));
         }
 
@@ -163,7 +163,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     @Override
     public void onMapReady(@NonNull GoogleMap googleMap) {
         //LatLng sydney = new LatLng(42.731138, -84.487508);
-        //LatLng currLocation = new LatLng(latitude, longitude);
+        LatLng currLocation = new LatLng(latitude, longitude);
 
         LatLng spartanStatue = new LatLng(42.731138, -84.487508);
 
@@ -175,7 +175,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
 
         // Request walking directions
-        //requestWalkingDirections(currLocation, spartanStatue);
+        requestWalkingDirections(currLocation, spartanStatue);
     }
 
     /**
