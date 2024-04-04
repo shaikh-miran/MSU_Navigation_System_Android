@@ -54,9 +54,9 @@
     <!-- Current Building ImageView (Dynamic) -->
     <ImageView
         android:id="@+id/buildingImageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_launcher_background"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:src="@drawable/road"
         android:contentDescription="@string/image_description"
         app:layout_constraintTop_toBottomOf="@id/locationTextView"
         app:layout_constraintEnd_toEndOf="parent" />

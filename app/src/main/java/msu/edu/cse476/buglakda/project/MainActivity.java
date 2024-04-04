@@ -20,6 +20,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -45,7 +46,15 @@ import java.net.URL;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements OnMapReadyCallback {
+    private final static double ENGLAT = 42.724303;
 
+    private final static double ENGLONG = -84.480507;
+
+    private final static double STEMLAT = 42.7265543;
+    private final static double STEMLONG = -84.4876656;
+
+    private final static double BROADLONG = 42.7265538;
+    private final static double BROADLAT = -84.4951027;
     /**
      * Constants for setting of where user is going
      */
@@ -290,7 +299,20 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         latitude = location.getLatitude();
         longitude = location.getLongitude();
         valid = true;
+        ImageView imageView = findViewById(R.id.buildingImageView);
+        double diff = 0.05;
+        if (longitude>ENGLONG-diff &&  longitude<ENGLONG+diff && latitude<ENGLAT+diff && latitude>ENGLAT-diff) {
 
+            imageView.setImageResource(R.drawable.eb_nw_entrance);
+        }
+        if (longitude>STEMLONG-diff &&  longitude<STEMLONG+diff && latitude<STEMLAT+diff && latitude>STEMLAT-diff) {
+
+            imageView.setImageResource(R.drawable.stem_build);
+        }
+        if (longitude>BROADLONG-diff &&  longitude<BROADLONG+diff && latitude<BROADLAT+diff && latitude>BROADLAT-diff) {
+
+            imageView.setImageResource(R.drawable.broad_build);
+        }
         setUI();
     }
 
