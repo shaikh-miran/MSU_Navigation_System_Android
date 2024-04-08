@@ -4,37 +4,13 @@
     android:layout_height="match_parent"
     android:padding="16dp">
 
-    <EditText
-        android:id="@+id/editTextUsername"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/textViewWelcome"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="180dp"
-        android:layout_marginBottom="8dp"
-        android:hint="@string/username" />
-
-    <EditText
-        android:id="@+id/editTextPassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/editTextUsername"
-        android:layout_marginTop="53dp"
-        android:layout_marginBottom="8dp"
-        android:hint="@string/password" />
-
-    <Button
-        android:id="@+id/buttonLogin"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/editTextPassword"
-        android:layout_marginTop="206dp"
-        android:text="@string/login" />
-
-    <Button
-        android:id="@+id/buttonChange"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/buttonLogin"
-        android:layout_marginTop="15dp"
-        android:text="@string/change_password" />
+        android:text="hello"
+        android:layout_centerInParent="true"
+        android:textSize="22sp"
+        android:textAlignment="center" />
 
 </RelativeLayout>
