@@ -1,9 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     tools:context=".MainActivity">
 
     <!-- Header TextView -->
@@ -28,10 +29,10 @@
         android:layout_height="wrap_content"
         android:background="@color/light_gray"
         android:text="@string/location_prefix"
-        android:textSize="30sp"
+        android:textSize="27sp"
         app:layout_constraintTop_toBottomOf="@id/headerTextView"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toStartOf="@id/mapView" />
 
 
     <!-- Classroom Number Input EditText -->
@@ -43,11 +44,10 @@
         android:ems="10"
         android:inputType="number"
         android:autofillHints="none"
-        android:textSize="24sp"
+        android:textSize="16sp"
         app:layout_constraintTop_toBottomOf="@id/locationTextView"
-        app:layout_constraintEnd_toStartOf="@id/buildingImageView"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toStartOf="@id/mapView" />
 
 
     <!-- Current Building ImageView (Dynamic) -->
@@ -57,32 +57,25 @@
         android:layout_height="wrap_content"
         android:src="@drawable/ic_launcher_background"
         android:contentDescription="@string/image_description"
-        app:layout_constraintTop_toBottomOf="@id/locationTextView"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/classroomInput"
+        app:layout_constraintEnd_toEndOf="@id/classroomInput"
+        app:layout_constraintStart_toStartOf="parent"/>
 
-
-    <!--    &lt;!&ndash; Map View &ndash;&gt;-->
-    <!--    <msu.edu.cse476.buglakda.project.MapView-->
-    <!--        android:id="@+id/mapView"-->
-    <!--        android:layout_width="0dp"-->
-    <!--        android:layout_height="0dp"-->
-    <!--        android:background="@color/kelly_green"-->
-    <!--        android:name="com.google.android.gms.maps.SupportMapFragment"-->
-    <!--        app:layout_constraintTop_toBottomOf="@id/buildingImageView"-->
-    <!--        app:layout_constraintBottom_toTopOf="@id/helpButton"-->
-    <!--        app:layout_constraintStart_toStartOf="parent"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent" />-->
-
+    <!-- Map view -->
     <fragment
         android:id="@+id/mapView"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@color/kelly_green"
         android:name="com.google.android.gms.maps.SupportMapFragment"
-        app:layout_constraintTop_toBottomOf="@id/buildingImageView"
-        app:layout_constraintBottom_toTopOf="@id/helpButton"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@id/settingsButton"
+        app:layout_constraintTop_toBottomOf="@id/headerTextView"
+        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent="0.7"/>
 
 
     <!-- Help Button -->
@@ -90,13 +83,11 @@
         android:id="@+id/helpButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/refresh_green"
-        android:onClick="onStartHelp"
         android:text="@string/help"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/settingsButton"
-        app:layout_constraintHorizontal_weight="1"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:backgroundTint="@color/refresh_green"
+        app:layout_constraintTop_toBottomOf="@id/buildingImageView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/mapView"/>
 
 
     <!-- Settings Button -->
@@ -106,9 +97,8 @@
         android:layout_height="wrap_content"
         android:text="@string/settings"
         android:backgroundTint="@color/refresh_green"
-        app:layout_constraintStart_toEndOf="@id/helpButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_weight="1"/>
+        app:layout_constraintTop_toBottomOf="@id/helpButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/mapView"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

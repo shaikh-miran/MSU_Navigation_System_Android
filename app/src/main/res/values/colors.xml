@@ -2,4 +2,14 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="spartan_green">#18453B</color>
+    <color name="kelly_green">#008208</color>
+    <color name="lime_green">#7BBD00</color>
+    <color name="excellence_green">#0B9A6D</color>
+    <color name="refresh_green">#008934</color>
+    <color name="light_gray">#B0B0B0</color>
+    <color name="light_blue_400">#FF29B6F6</color>
+    <color name="light_blue_600">#FF039BE5</color>
+    <color name="gray_400">#FFBDBDBD</color>
+    <color name="gray_600">#FF757575</color>
 </resources>

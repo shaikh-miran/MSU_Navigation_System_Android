@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -12,6 +16,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Project"
         tools:targetApi="31">
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDb6ZRmE8TDUBLR9-FQjP_UAHnOUf-TH8g"
+            />
 
         <!-- LoginActivity is now the launcher activity -->
         <activity
@@ -24,10 +33,15 @@
             </intent-filter>
         </activity>
 
-        <!-- MainActivity and other activities without the MAIN intent-filter -->
-        <activity android:name=".MainActivity" android:exported="true" />
-        <activity android:name=".ChangePasswordActivity" android:exported="true" />
-        <!-- Include other activities here -->
 
+        <activity
+            android:name=".HelpActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+        </activity>
+        <activity android:name=".ChangePasswordActivity" android:exported="true" />
     </application>
+
 </manifest>
