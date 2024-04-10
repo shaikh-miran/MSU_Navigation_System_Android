@@ -51,14 +51,24 @@
 
 
     <!-- Current Building ImageView (Dynamic) -->
+    <Button
+        android:id="@+id/submitButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/submit"
+        app:layout_constraintEnd_toStartOf="@id/mapView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/classroomInput"
+        android:onClick="setToLocation"/>
+
     <ImageView
         android:id="@+id/buildingImageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_launcher_background"
         android:contentDescription="@string/image_description"
-        app:layout_constraintTop_toBottomOf="@id/classroomInput"
-        app:layout_constraintEnd_toEndOf="@id/classroomInput"
+        app:layout_constraintTop_toBottomOf="@id/submitButton"
+        app:layout_constraintEnd_toEndOf="@id/submitButton"
         app:layout_constraintStart_toStartOf="parent"/>
 
     <!-- Map view -->

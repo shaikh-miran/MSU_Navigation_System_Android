@@ -10,7 +10,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.location.Address;
 import android.location.Criteria;
+import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -403,4 +405,30 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
             registerListeners();
         }
     };
+    public void setToLocation(View view) {
+        TextView EditLocation = findViewById(R.id.classroomInput);
+        String address = EditLocation.getText().toString().trim();
+        Geocoder geocoder = new Geocoder(this);
+        try {
+            List<Address> addresses = geocoder.getFromLocationName(address, 1);
+            if (addresses != null && !addresses.isEmpty()) {
+                Address location = addresses.get(0);
+                double toLatitude = location.getLatitude();
+                double toLongitude = location.getLongitude();
+
+                // Set the tolat and tolong
+                saveLocation(address, toLatitude, toLongitude);
+
+                // Set pin on the map
+                LatLng destination = new LatLng(toLatitude, toLongitude);
+                mMap.addMarker(new MarkerOptions().position(destination).title(address));
+                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(destination, 15));
+            } else {
+                Toast.makeText(this, "Unable to find location. Please enter a valid address.", Toast.LENGTH_SHORT).show();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+            Toast.makeText(this, "Error finding location. Please try again.", Toast.LENGTH_SHORT).show();
+        }
+    }
 }

@@ -36,20 +36,30 @@
 
 
     <!-- Classroom Number Input EditText -->
+
     <EditText
         android:id="@+id/classroomInput"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="@string/class_input_hint"
         android:ems="10"
-        android:inputType="number"
+
         android:autofillHints="none"
         android:textSize="24sp"
         app:layout_constraintTop_toBottomOf="@id/locationTextView"
         app:layout_constraintEnd_toStartOf="@id/buildingImageView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
-
+    <Button
+        android:id="@+id/submitButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/submit"
+        app:layout_constraintEnd_toStartOf="@id/mapView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/classroomInput"
+        android:onClick="setToLocation"/>
 
     <!-- Current Building ImageView (Dynamic) -->
     <ImageView
