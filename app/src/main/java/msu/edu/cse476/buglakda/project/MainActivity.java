@@ -31,7 +31,9 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
 import com.google.maps.android.PolyUtil;
 
@@ -97,6 +99,9 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
      * Support preferences to keep track of to location on app exit
      */
     private SharedPreferences settings = null;
+
+    private Marker lastMarker = null;
+    private Polyline lastPolyline = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -177,13 +182,13 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         mMap = googleMap;
 
-        mMap.addMarker(new MarkerOptions().position(spartanStatue).title("Spartan Statue"));
+        //mMap.addMarker(new MarkerOptions().position(spartanStatue).title("Spartan Statue"));
 
         //mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(currLocation, 15));
 
 
         // Request walking directions
-        requestWalkingDirections(currLocation, spartanStatue);
+        //requestWalkingDirections(currLocation, spartanStatue);
     }
 
     /**
@@ -271,7 +276,11 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     private void drawPolyline(String polylinePoints) {
         List<LatLng> decodedPath = PolyUtil.decode(polylinePoints);
         if (mMap != null) {
-            mMap.addPolyline(new PolylineOptions().addAll(decodedPath));
+            // Remove the last polyline if it exists
+            if (lastPolyline != null) {
+                lastPolyline.remove();
+            }
+            lastPolyline = mMap.addPolyline(new PolylineOptions().addAll(decodedPath)); // Save the new polyline
         }
     }
 
@@ -416,13 +425,25 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                 double toLatitude = location.getLatitude();
                 double toLongitude = location.getLongitude();
 
+                // Remove the last marker and polyline if they exist
+                if (lastMarker != null) {
+                    lastMarker.remove();
+                    lastMarker = null; // Clear the reference to the marker
+                }
+                if (lastPolyline != null) {
+                    lastPolyline.remove();
+                    lastPolyline = null; // Clear the reference to the polyline
+                }
+
                 // Set the tolat and tolong
                 saveLocation(address, toLatitude, toLongitude);
 
                 // Set pin on the map
                 LatLng destination = new LatLng(toLatitude, toLongitude);
-                mMap.addMarker(new MarkerOptions().position(destination).title(address));
+                lastMarker = mMap.addMarker(new MarkerOptions().position(destination).title(address));
                 mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(destination, 15));
+                LatLng currLocation = new LatLng(latitude, longitude);
+                requestWalkingDirections(currLocation, destination);
             } else {
                 Toast.makeText(this, "Unable to find location. Please enter a valid address.", Toast.LENGTH_SHORT).show();
             }
