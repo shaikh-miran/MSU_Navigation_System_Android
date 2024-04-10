@@ -13,8 +13,8 @@
     <string name="username">Username</string>
     <string name="change_password">Change Password</string>
     <string name="submit">Submit</string>
-    <string name="settings_title">Change Username</string>
+    <string name="settings_title">Change Password</string>
     <string name="username_hint">Enter username\n</string>
-    <string name="password_hint">Enter Password</string>
+    <string name="password_hint">Enter New Password</string>
     <string name="cancel">Cancel</string>
 </resources>
