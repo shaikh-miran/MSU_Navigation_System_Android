@@ -126,6 +126,11 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
     }
 
+    public void onStartSettings(View view) {
+        Intent intent = new Intent(this, SettingsActivity.class);
+        startActivity(intent);
+    }
+
     private void setupLocationManagerAndMapFragment() {
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.mapView);
         assert mapFragment != null;

@@ -104,10 +104,11 @@
         android:id="@+id/settingsButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/settings"
         android:backgroundTint="@color/refresh_green"
-        app:layout_constraintTop_toBottomOf="@id/helpButton"
+        android:onClick="onStartSettings"
+        android:text="@string/settings"
+        app:layout_constraintEnd_toStartOf="@id/mapView"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/mapView"/>
+        app:layout_constraintTop_toBottomOf="@id/helpButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
