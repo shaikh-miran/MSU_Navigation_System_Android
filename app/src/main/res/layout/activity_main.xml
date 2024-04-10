@@ -79,17 +79,17 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
 
-<!--    &lt;!&ndash; Map View &ndash;&gt;-->
-<!--    <msu.edu.cse476.buglakda.project.MapView-->
-<!--        android:id="@+id/mapView"-->
-<!--        android:layout_width="0dp"-->
-<!--        android:layout_height="0dp"-->
-<!--        android:background="@color/kelly_green"-->
-<!--        android:name="com.google.android.gms.maps.SupportMapFragment"-->
-<!--        app:layout_constraintTop_toBottomOf="@id/buildingImageView"-->
-<!--        app:layout_constraintBottom_toTopOf="@id/helpButton"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent" />-->
+    <!--    &lt;!&ndash; Map View &ndash;&gt;-->
+    <!--    <msu.edu.cse476.buglakda.project.MapView-->
+    <!--        android:id="@+id/mapView"-->
+    <!--        android:layout_width="0dp"-->
+    <!--        android:layout_height="0dp"-->
+    <!--        android:background="@color/kelly_green"-->
+    <!--        android:name="com.google.android.gms.maps.SupportMapFragment"-->
+    <!--        app:layout_constraintTop_toBottomOf="@id/buildingImageView"-->
+    <!--        app:layout_constraintBottom_toTopOf="@id/helpButton"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent" />-->
 
     <fragment
         android:id="@+id/mapView"
