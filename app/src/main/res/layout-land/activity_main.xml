@@ -42,7 +42,6 @@
         android:layout_height="wrap_content"
         android:hint="@string/class_input_hint"
         android:ems="10"
-
         android:autofillHints="none"
         android:textSize="16sp"
         app:layout_constraintTop_toBottomOf="@id/locationTextView"
