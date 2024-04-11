@@ -15,7 +15,15 @@ public class SettingsActivity extends AppCompatActivity {
 
         // Find the cancelButton by its ID
         Button cancelButton = findViewById(R.id.cancelButton);
+        Button submitButton = findViewById(R.id.confirmButton);
 
+        submitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Finish the current activity
+                finish();
+            }
+        });
         // Set an OnClickListener on the cancelButton
         cancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
