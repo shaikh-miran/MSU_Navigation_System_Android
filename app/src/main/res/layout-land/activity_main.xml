@@ -36,14 +36,21 @@
 
 
     <!-- Classroom Number Input EditText -->
-    <EditText
-        android:id="@+id/classroomInput"
+<!--    <EditText-->
+<!--        android:id="@+id/classroomInput"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:hint="@string/class_input_hint"-->
+<!--        android:ems="10"-->
+<!--        android:autofillHints="none"-->
+<!--        android:textSize="16sp"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/locationTextView"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintEnd_toStartOf="@id/mapView" />-->
+    <Spinner
+        android:id="@+id/buildingSpinner"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="@string/class_input_hint"
-        android:ems="10"
-        android:autofillHints="none"
-        android:textSize="16sp"
         app:layout_constraintTop_toBottomOf="@id/locationTextView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/mapView" />
@@ -57,7 +64,7 @@
         android:text="@string/submit"
         app:layout_constraintEnd_toStartOf="@id/mapView"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/classroomInput"
+        app:layout_constraintTop_toBottomOf="@id/buildingSpinner"
         android:onClick="setToLocation"/>
 
     <ImageView

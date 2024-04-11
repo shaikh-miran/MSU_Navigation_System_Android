@@ -17,4 +17,9 @@
     <string name="username_hint">Enter username\n</string>
     <string name="password_hint">Enter New Password</string>
     <string name="cancel">Cancel</string>
+    <string-array name="building_names">
+        <item>Broad Business College</item>
+        <item>Engineering Building</item>
+        <item>STEM Building</item>
+    </string-array>
 </resources>

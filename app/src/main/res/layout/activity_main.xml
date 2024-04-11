@@ -37,39 +37,52 @@
 
     <!-- Classroom Number Input EditText -->
 
-    <EditText
-        android:id="@+id/classroomInput"
+    <Spinner
+        android:id="@+id/buildingSpinner"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="@string/class_input_hint"
-        android:ems="10"
-
-        android:autofillHints="none"
-        android:textSize="24sp"
         app:layout_constraintTop_toBottomOf="@id/locationTextView"
         app:layout_constraintEnd_toStartOf="@id/buildingImageView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+<!--    <EditText-->
+<!--        android:id="@+id/classroomInput"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:hint="@string/class_input_hint"-->
+<!--        android:ems="10"-->
+<!--        android:autofillHints="none"-->
+<!--        android:textSize="24sp"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/locationTextView"-->
+<!--        app:layout_constraintEnd_toStartOf="@id/buildingImageView"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent" />-->
+
     <View
         android:id="@+id/bufferView"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        app:layout_constraintTop_toBottomOf="@id/classroomInput"
+        app:layout_constraintTop_toBottomOf="@id/buildingSpinner"
         app:layout_constraintStart_toEndOf="@id/bufferView"
         app:layout_constraintEnd_toStartOf="@+id/mapView"
         app:layout_constraintBottom_toTopOf="@id/buildingImageView"/>
+
+    <!-- Current Building ImageView (Dynamic) -->
+
     <Button
         android:id="@+id/submitButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/submit"
-        app:layout_constraintTop_toBottomOf="@id/classroomInput"
-        app:layout_constraintStart_toEndOf="@id/bufferView"
-        app:layout_constraintEnd_toStartOf="@id/mapView"
+        android:layout_marginTop="4dp"
         android:onClick="setToLocation"
-        android:textSize="10sp"/>
+        android:text="@string/submit"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toStartOf="@id/mapView"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@id/bufferView"
+        app:layout_constraintTop_toBottomOf="@id/buildingSpinner" />
 
-    <!-- Current Building ImageView (Dynamic) -->
     <ImageView
         android:id="@+id/buildingImageView"
         android:layout_width="120dp"
